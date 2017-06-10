@@ -10,3 +10,4 @@
 10.Compilación de edcoments.go y ejecución de edcomments.exe
 11. se usa POSTMAN para probar que se pueden crear usuarios, se ejecuta un json en POSTMAN para registrar un usuario y se verifica en la base de datos
 12. se usa POSTMAN para probar que se pueden logear usuarios, se ejecuta un json en POSTMAN para logear un usuario, se realiza el json con email y password, el token que retorna como resultado se le puede realizar una verificacion de que no esta alterado en la pagina https://jwt.io/
+13. Se crea el archivo controllers/validate para la validacion del token del usuario
