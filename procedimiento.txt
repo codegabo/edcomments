@@ -1,0 +1,9 @@
+1. base de datos-crear modelos
+2. autentificacion de logins con tokens
+3. conexion a la bd (connfig.json)
+4. crear paquete migration para poder crear las tablas de los modelos
+5. crear llaves privadas y publicas en paquete keys
+6. crear funcionalidad para revisar autentificacion de la aplicacion
+7. crear un archivo para almacenar la funcionalidad de login y una para crear usuarios
+8. crear rutas de la API
+9. crear ruta para login
