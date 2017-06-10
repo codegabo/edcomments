@@ -7,3 +7,5 @@
 7. crear un archivo para almacenar la funcionalidad de login y una para crear usuarios
 8. crear rutas de la API
 9. crear ruta para login
+10.Compilación de edcoments.go y ejecución de edcomments.exe
+11. se usa POSTMAN para probar que se pueden crear usuarios, se ejecuta un json en POSTMAN para registrar un usuario y se verifica en la base de datos
