@@ -15,4 +15,5 @@
 15. se crea la ruta para poder utilizar el controlador de comentarios
 16. cOLOCAR EL SetCommentRouter en el archivo routes.go
 17. se realizan pruebas con postman
-18. crear controlador para consultar los comentarios
+18. crear controlador para consultar los comentarios que no tienen comentaarios hijos
+19. crear funcion para conocer comentarios hijos y que usuario realzo dichos comentarios. tambien se realiza prubea con postman
