@@ -14,3 +14,5 @@
 14. se crea controlador controller/comment.go que permite crear comentarios
 15. se crea la ruta para poder utilizar el controlador de comentarios
 16. cOLOCAR EL SetCommentRouter en el archivo routes.go
+17. se realizan pruebas con postman
+18. crear controlador para consultar los comentarios
