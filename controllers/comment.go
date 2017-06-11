@@ -18,17 +18,17 @@ func CommentCreate(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&comment)
 	if err != nil {
-		m.code = http.StatusBadRequest
+		m.Code = http.StatusBadRequest
 		m.Message = fmt.Sprintf("Error al leer el comentario: %s", err)
 		commons.DisplayMessage(w, m)
 		return
 	}
-	db := configuration.GetConection()
+	db := configuration.GetConnection()
 	defer db.Close()
 
 	err = db.Create(&comment).Error
 	if err != nil {
-		m.code = http.StatusBadRequest
+		m.Code = http.StatusBadRequest
 		m.Message = fmt.Sprintf("Error al registrar el comentario: %s", err)
 		commons.DisplayMessage(w, m)
 		return
