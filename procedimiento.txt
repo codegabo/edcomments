@@ -17,3 +17,4 @@
 17. se realizan pruebas con postman
 18. crear controlador para consultar los comentarios que no tienen comentaarios hijos
 19. crear funcion para conocer comentarios hijos y que usuario realzo dichos comentarios. tambien se realiza prubea con postman
+20. se crea funcion para revisar si el usuario registro algun voto positivo, negativo o ninguno

@@ -49,7 +49,7 @@ func CommentGetAll(w http.ResponseWriter, r *http.Request) {
 	comments := []models.Comment{}
 	m := models.Message{}
 	user := models.User{}
-	//vote := models.Vote{}
+	vote := models.Vote{}
 
 	// esto para saber que usuario esta realizando la consulta
 	r.Context().Value(&user)
@@ -82,6 +82,18 @@ func CommentGetAll(w http.ResponseWriter, r *http.Request) {
 		// esta linea es para no mostrar la contraseña del usuario
 		comments[i].User[0].Password = ""
 		comments[i].Children = commentGetChildren(comments[i].ID)
+
+		// Se busca el voto del usuario en sesión
+		vote.CommentID = comments[i].ID
+		vote.UserID = user.ID
+		count := db.Where(&vote).Find(&vote).RowsAffected
+		if count > 0 {
+			if vote.Value {
+				comments[i].HasVote = 1
+			} else {
+				comments[i].HasVote = -1
+			}
+		}
 	}
 
 	j, err := json.Marshal(comments)
