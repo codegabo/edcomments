@@ -33,10 +33,10 @@ func VoteRegister(w http.ResponseWriter, r *http.Request) {
 
 	db.Where("comment_id = ? and user_id = ?", vote.CommentID, vote.UserID).First(&currentVote)
 
-	// si no existe
+	// Si no existe
 	if currentVote.ID == 0 {
 		db.Create(&vote)
-		err := updateCommentVotes(vote.CommentID, vote.Value)
+		err := updateCommentVotes(vote.CommentID, vote.Value, false)
 		if err != nil {
 			m.Message = err.Error()
 			m.Code = http.StatusBadRequest
@@ -50,7 +50,7 @@ func VoteRegister(w http.ResponseWriter, r *http.Request) {
 	} else if currentVote.Value != vote.Value {
 		currentVote.Value = vote.Value
 		db.Save(&currentVote)
-		updateCommentVotes(vote.CommentID, vote.Value)
+		updateCommentVotes(vote.CommentID, vote.Value, true)
 		if err != nil {
 			m.Message = err.Error()
 			m.Code = http.StatusBadRequest
@@ -67,8 +67,9 @@ func VoteRegister(w http.ResponseWriter, r *http.Request) {
 	commons.DisplayMessage(w, m)
 }
 
-// updateComments funcion para actualizar el comentario en caso de que ya exista o crear el comentario en caso de que no exista
-func updateCommentVotes(commentID uint, vote bool) (err error) {
+// updateCommentVotes funcion para actualizar el voto en caso de que ya exista o crear el voto en caso de que no exista
+// isUpdate indica si es un voto para actualizar
+func updateCommentVotes(commentID uint, vote bool, isUpdate bool) (err error) {
 	comment := models.Comment{}
 
 	db := configuration.GetConnection()
@@ -80,8 +81,14 @@ func updateCommentVotes(commentID uint, vote bool) (err error) {
 	if rows > 0 {
 		if vote {
 			comment.Votes++
+			if isUpdate {
+				comment.Votes++
+			}
 		} else {
 			comment.Votes--
+			if isUpdate {
+				comment.Votes--
+			}
 		}
 		db.Save(&comment)
 	} else {

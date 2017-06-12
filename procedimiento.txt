@@ -20,3 +20,5 @@
 20. se crea funcion para revisar si el usuario registro algun voto positivo, negativo o ninguno
 21. token de usuario
 22. creacion de controlador para los votos
+23. agregar router del controlador vote.go y prueba de votos positivos y negativos con postman
+24. se actualiza controllers/vote.go para que los votos tambien puedan ser negativos
