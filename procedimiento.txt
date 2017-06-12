@@ -22,3 +22,4 @@
 22. creacion de controlador para los votos
 23. agregar router del controlador vote.go y prueba de votos positivos y negativos con postman
 24. se actualiza controllers/vote.go para que los votos tambien puedan ser negativos
+25. Personalización de puerto, el puerto por default es el 8080, esta opción permite escoger a gusto un puerto para iniciar un servidor
