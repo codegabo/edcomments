@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EDComments</title>
+  </head>
+  <body>
+    <form action="/api/login" method="post" id="form-login">
+        <input type="email" id="email" name="email" placeholder="Email">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <button id="btnLogin">Login</button>
+    </form>
+    <div id="mensaje-login"></div>
+
+    <form action="/api/comments/" method="post" id="form-comment-add">
+        <textarea id="comment-content" name="comment-content" ></textarea>
+        <button id="btnCommentAdd">Comentar</button>
+    </form>
+    <div id="mensaje-comentario"></div>
+
+
+    <script src="js/libreria.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/comments.js"></script>
+
+  </body>
+</html>
+
+<!--
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -18,3 +47,4 @@
     </script>
 </body>
 </html>
+-->
