@@ -15,6 +15,7 @@ func SetRealtimeRouter(router *mux.Router) {
 	})
 
 	mel.HandleMessage(func(s *melody.Session, msg []byte) {
+		// la data del msg se enviara a todos los clientes que esten conectados usando Broadcast
 		mel.Broadcast(msg)
 	})
 }
